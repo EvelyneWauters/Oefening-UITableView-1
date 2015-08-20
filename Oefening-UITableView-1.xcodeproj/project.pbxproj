@@ -15,6 +15,8 @@
 		ABD2233D1B8459D6000ABBE2 /* Oefening_UITableView_1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD2233C1B8459D6000ABBE2 /* Oefening_UITableView_1Tests.m */; };
 		ABD2234E1B845BA9000ABBE2 /* Match.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD2234D1B845BA9000ABBE2 /* Match.m */; };
 		ABD223531B845CA7000ABBE2 /* MatchFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD223521B845CA7000ABBE2 /* MatchFactory.m */; };
+		BEFE6F981B84A16D005882FC /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFE6F971B84A16D005882FC /* TableViewController.m */; };
+		BEFE6F9B1B84A944005882FC /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFE6F9A1B84A944005882FC /* TableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +45,10 @@
 		ABD2234D1B845BA9000ABBE2 /* Match.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Match.m; path = Classes/Match.m; sourceTree = "<group>"; };
 		ABD223511B845CA7000ABBE2 /* MatchFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MatchFactory.h; path = Classes/MatchFactory.h; sourceTree = "<group>"; };
 		ABD223521B845CA7000ABBE2 /* MatchFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MatchFactory.m; path = Classes/MatchFactory.m; sourceTree = "<group>"; };
+		BEFE6F961B84A16D005882FC /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewController.h; path = Classes/TableViewController.h; sourceTree = "<group>"; };
+		BEFE6F971B84A16D005882FC /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewController.m; path = Classes/TableViewController.m; sourceTree = "<group>"; };
+		BEFE6F991B84A944005882FC /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableViewCell.h; path = Classes/TableViewCell.h; sourceTree = "<group>"; };
+		BEFE6F9A1B84A944005882FC /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableViewCell.m; path = Classes/TableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +139,10 @@
 		ABD223471B845A6D000ABBE2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BEFE6F961B84A16D005882FC /* TableViewController.h */,
+				BEFE6F971B84A16D005882FC /* TableViewController.m */,
+				BEFE6F991B84A944005882FC /* TableViewCell.h */,
+				BEFE6F9A1B84A944005882FC /* TableViewCell.m */,
 				ABD223481B845A7A000ABBE2 /* Storyboards */,
 			);
 			name = Controllers;
@@ -281,8 +291,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABD2234E1B845BA9000ABBE2 /* Match.m in Sources */,
+				BEFE6F9B1B84A944005882FC /* TableViewCell.m in Sources */,
 				ABD223261B8459D6000ABBE2 /* AppDelegate.m in Sources */,
 				ABD223531B845CA7000ABBE2 /* MatchFactory.m in Sources */,
+				BEFE6F981B84A16D005882FC /* TableViewController.m in Sources */,
 				ABD223231B8459D6000ABBE2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +492,7 @@
 				ABD223421B8459D6000ABBE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		ABD223431B8459D6000ABBE2 /* Build configuration list for PBXNativeTarget "Oefening-UITableView-1Tests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +501,7 @@
 				ABD223451B8459D6000ABBE2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

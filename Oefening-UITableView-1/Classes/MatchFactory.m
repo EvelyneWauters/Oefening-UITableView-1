@@ -55,7 +55,7 @@
                                 @"Zulte Waregem",
                                 @"Club Brugge",
                                 @"Waasland-Beveren",
-                                @"Moeskroen-Péruwelz",
+                                @"Moeskroen-P.",
                                 @"KV Mechelen",
                                 @"OH Leuven",
                                 @"Charleroi",
