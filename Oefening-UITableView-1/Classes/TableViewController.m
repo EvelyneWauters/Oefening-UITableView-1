@@ -9,6 +9,8 @@
 #import "TableViewController.h"
 #import "TableViewCell.h"
 #import "MatchFactory.h"
+#import "TableViewCellHeader.h"
+#import "DetailViewController.h"
 
 @interface TableViewController ()
 
@@ -25,6 +27,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.arrayMatches = [MatchFactory createMatches];
+    self.arrayMatchesNotPlayedYet = [[NSMutableArray alloc] init];
+    self.arrayMatchesOngoing = [[NSMutableArray alloc] init];
+    self.arrayMatchesPlayed = [[NSMutableArray alloc] init];
+    
     for (int i; i< self.arrayMatches.count; i++)  {
         Match*match = self.arrayMatches[i];
 
@@ -58,11 +64,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    if (section ==1)    {
+    if (section ==0)    {
         return self.arrayMatchesPlayed.count;
-    } else if(section ==2)  {
+    } else if(section ==1)  {
         return self.arrayMatchesOngoing.count;
-    } else if(section ==3)  {
+    } else if(section ==2)  {
         return self.arrayMatchesNotPlayedYet.count;
     } else {
         return self.arrayMatches.count;
@@ -70,19 +76,72 @@
 }
 
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"team cell" forIndexPath:indexPath];
-    Match* match = self.arrayMatches[indexPath.row];
     
-    [cell matchMaking:match];
+    NSInteger section = [indexPath section];
+    NSInteger row = [indexPath row];    
+    
+    if (section ==0)    {
+        Match* matchesPlayed = self.arrayMatchesPlayed[row];
+        [cell matchMaking:matchesPlayed];
+    } else if (section ==1) {
+        Match* matchesOngoing = self.arrayMatchesOngoing[row];
+        [cell matchMaking:matchesOngoing];
+    } else if (section ==2) {
+        Match* matchesNotPlayed = self.arrayMatchesNotPlayedYet[row];
+        [cell matchMaking:matchesNotPlayed];
+    }
+    
+        return cell;
+}
+
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    TableViewCellHeader *cell = [tableView dequeueReusableCellWithIdentifier:@"header cell"];
+    cell.backgroundColor = [UIColor lightGrayColor];
+    
+    
+    if (section ==0) {
+        cell.headerLabel.text = @"matches played";
+    } else if (section ==1) {
+        cell.headerLabel.text = @"match ongoing";
+    } else if (section ==2) {
+        cell.headerLabel.text = @"match not played yet";
+    }
+    
     return cell;
 }
+
+
+
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 72;
+}
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+
+    DetailViewController *detailPage = segue.destinationViewController;
+    NSIndexPath *nsindex = [self.tableView indexPathForCell:sender];
+    
+    if(nsindex.section == 0)    {
+        [detailPage setMatch:[self.arrayMatchesPlayed objectAtIndex:nsindex.row]];
+    } else if (nsindex.section == 1) {
+        [detailPage setMatch:[self.arrayMatchesOngoing objectAtIndex:nsindex.row]];
+    } else if (nsindex.section == 2) {
+        [detailPage setMatch:[self.arrayMatchesNotPlayedYet objectAtIndex:nsindex.row]];
+    }
+    
+
 }
 
 

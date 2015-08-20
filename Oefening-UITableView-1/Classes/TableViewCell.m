@@ -7,7 +7,7 @@
 //
 
 #import "TableViewCell.h"
-
+#import "TableViewCellHeader.h"
 @implementation TableViewCell
 
 - (void)awakeFromNib {
@@ -34,9 +34,8 @@
         self.scoreLabel.text = @"not played yet";
 
     } else if (match.status == MatchStatusOngoing)    {
-        self.scoreLabel.font = [self.scoreLabel.font fontWithSize:9];
         self.scoreLabel.textColor = [UIColor redColor];
-        self.scoreLabel.text = @"ongoing";
+        self.scoreLabel.text = [NSString stringWithFormat:@"%lu - %lu",(unsigned long)match.homeTeamScore, match.visitingTeamScore];
         
     } else  {
         self.scoreLabel.text = [NSString stringWithFormat:@"%lu - %lu",(unsigned long)match.homeTeamScore, match.visitingTeamScore];
